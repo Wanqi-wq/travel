@@ -1,10 +1,19 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+//引入fastclick
 import fastClick from 'fastclick'
+//引入vue-awesome-swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
+import 'swiper/dist/css/swiper.css'
+
+
+
+
+Vue.use(VueAwesomeSwiper)
 
 
 
