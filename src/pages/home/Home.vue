@@ -1,12 +1,16 @@
 <template>
-	<div>首页{{message}}</div>
+	<div>
+		<home-header></home-header>
+	</div>
 </template>
 <script>
+  import HomeHeader from "./components/Header"
 	export default {
-		data() {
-			return {
-        message:"你好"
-			}
+	  name: "Home",
+		components: {
+			HomeHeader
 		}
+		
 	}
 </script>
+
