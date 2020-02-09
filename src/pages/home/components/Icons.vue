@@ -52,7 +52,7 @@ export default {
   },{
     id: "0009",
     imgUrl:"//s.qunarzz.com/homenode/images/touchheader/piao.png",
-    desc: "景点门票wagrhetjhatejaetkfykyfgkfhlxtlllky"
+    desc: "景点门票"
   }]
     }
   },
@@ -80,9 +80,8 @@ export default {
     height 0
     padding-bottom 50%
   .icons
-    overflow hidden
-    height 0
-    padding-bottom 50%
+    margin-top: 
+    .1rem
     .icon
       position relative
       /* overflow hidden */
