@@ -30,7 +30,7 @@
     display: flex
     background: $bgColor
     color: #fff
-    line-height: .86rem
+    line-height: $headerHeight
     .header-left 
       width: .64rem
       text-align: center
