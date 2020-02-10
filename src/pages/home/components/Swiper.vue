@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide  v-for="(item, index) in swiperList" :key="index">
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide  v-for="(item, index) in list" :key="index">
         <img class="swiper-img" :src="item.imgUrl" alt="">
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
@@ -37,8 +37,15 @@ export default {
         loop: true
       }
     }
-    
-
+  },
+  props: {
+    list: Array
+  },
+  computed: {
+    //请求到数据之后再进行渲染
+    showSwiper() {
+      return this.list.length
+    }
   }
 }
 </script>
