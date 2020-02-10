@@ -7,27 +7,6 @@
           <div class="button-wrapper">
             <div class="button">北京</div>
           </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
         </div>
       </div>
       <div class="area">
@@ -38,8 +17,8 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, index) in cities" :key="index">
-        <div class="title border-topbottom">{{index}}</div>
+      <div class="area" v-for="(item, index) in cities" :key="index" :ref="index">
+        <div class="title border-topbottom" >{{index}}</div>
         <div class="item-list">
           <div class="item border-bottom" v-for="inneritem in item" :key="inneritem.id">{{inneritem.name}}</div>
         </div>
@@ -52,12 +31,27 @@
 import BScroll from 'better-scroll'
 export default {
   name:"HomeList",
+  data() {
+    return {
+    }
+  },
   mounted() {
-    let scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper)
   },
   props: {
     hot: Array,
-    cities: Object
+    cities: Object,
+    letter: String
+  },
+  methods: {
+    
+  },
+  watch: {
+    letter(letter) {
+      //监听字母是否发生改变，当点击的字母发生改变时，滚动到对应位置
+      const el = this.$refs[letter][0];
+       this.scroll.scrollToElement(el)
+    }
   }
 }
 </script>
