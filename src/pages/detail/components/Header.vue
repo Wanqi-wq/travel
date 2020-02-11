@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     handleContentScroll() {
+      //监听页面滚动的位置，根据位置实现标题渐隐渐现效果
       this.height = document.documentElement.scrollTop
       if(this.height > 60 && this.height < 140) {
         this.showAbs = false
@@ -59,6 +60,7 @@ export default {
       font-size .4rem
   .header-fixed
     position fixed
+    z-index 2
     left 0
     right 0
     top 0
