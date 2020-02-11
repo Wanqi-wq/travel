@@ -12,7 +12,6 @@
     </div>
     <common-gallery :imgs="imgs" @close="handleGalleryClose" v-show="showGallery"/>
   </div>
-  
 </template>
 <script>
 import CommonGallery from 'common/gallery/Gallery'
