@@ -5,7 +5,10 @@
   </div>
   <div class="search-content" ref="content" v-show="keyword">
     <ul>
-      <div class="search-item border-bottom" v-for="item in list" :key="item.id">{{item.name}}</div>
+      <div class="search-item border-bottom" 
+      v-for="item in list" 
+      :key="item.id"
+      @click="handleCityClick">{{item.name}}</div>
       <div class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</div>
     </ul>
   </div>
@@ -16,6 +19,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapActions } from 'vuex'
 export default {
   name: "CitySearch",
   data() {
@@ -59,6 +63,14 @@ export default {
       },100)
       
     }
+  },
+  methods: {
+     handleCityClick(e) {
+      // this.$store.dispatch('changeCity',e.target.innerText)
+      this.changeCity(e.target.innerText)
+      this.$router.push('/home')
+    },
+    ...mapActions(['changeCity'])
   }
 }
 </script>
