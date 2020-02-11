@@ -25,6 +25,9 @@ export default {
   activated() {
     window.addEventListener('scroll',this.handleContentScroll);
   },
+  deactivated() {
+    window.removeEventListener('scroll',this.handleContentScroll);
+  },
   methods: {
     handleContentScroll() {
       this.height = document.documentElement.scrollTop
