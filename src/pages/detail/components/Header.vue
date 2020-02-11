@@ -28,6 +28,9 @@ export default {
   deactivated() {
     window.removeEventListener('scroll',this.handleContentScroll);
   },
+  mounted() {
+    window.addEventListener('scroll',this.handleContentScroll);
+  },
   methods: {
     handleContentScroll() {
       //监听页面滚动的位置，根据位置实现标题渐隐渐现效果
