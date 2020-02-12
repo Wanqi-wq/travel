@@ -41,7 +41,10 @@ export default {
     }
   },
   mounted() {
-    this.scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper, {
+      //让原生支持原生click事件
+      click:true
+    })
   },
   computed:{
     ...mapState(['city'])

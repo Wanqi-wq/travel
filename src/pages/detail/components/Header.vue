@@ -34,7 +34,7 @@ export default {
   methods: {
     handleContentScroll() {
       //监听页面滚动的位置，根据位置实现标题渐隐渐现效果
-      this.height = document.documentElement.scrollTop
+      this.height = document.documentElement.scrollTop || document.body.scrollTop
       if(this.height > 60 && this.height < 140) {
         this.showAbs = false
         this.opacity = this.height/140
