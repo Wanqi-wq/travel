@@ -1,25 +1,14 @@
-const path = require('path');
-function resolve (dir) {
-    return path.join(__dirname, dir)
+const path = require("path");
+function resolve(dir) {
+  return path.join(__dirname, dir);
 }
 module.exports = {
-    lintOnSave: false,
-    chainWebpack: (config)=>{
-        config.resolve.alias
-            .set('@$', resolve('src'))
-            .set('styles',resolve('src/assets/styles'))
-            .set('common',resolve('src/common')) 
-    },
-    devServer: {
-        proxy: {
-          '/api': {
-            target: "http://localhost:8080",
-            changeOrigin: true,
-            pathRewrite: {
-              '^/api': '/mock'
-            }
-          }
-        }
-      }
-
-    }
+  publicPath: "/travel/",
+  lintOnSave: false,
+  chainWebpack: config => {
+    config.resolve.alias
+      .set("@$", resolve("src"))
+      .set("styles", resolve("src/assets/styles"))
+      .set("common", resolve("src/common"));
+  }
+};

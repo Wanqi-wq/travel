@@ -1,8 +1,9 @@
 import VueRouter from 'vue-router'
 import Vue from 'vue'
-import Home from '@/pages/home/Home'
-import City from '@/pages/city/City'
-import Detail from '@/pages/detail/Detail'
+//异步加载组件
+const Home = () => import ('@/pages/home/Home')
+const City = () => import ('@/pages/city/City')
+const Detail = () => import ('@/pages/detail/Detail')
 
 
 Vue.use(VueRouter)

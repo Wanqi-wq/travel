@@ -1,49 +1,49 @@
 <template>
   <div>
-    <detail-banner :sightName="sightName" 
-    :bannerImg="bannerImg"
-    :gallaryImgs="gallaryImgs"/>
-    <detail-header/>
-    <detail-list :list="categoryList"/>
+    <detail-banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs" />
+    <detail-header />
+    <detail-list :list="categoryList" />
     <div class="content"></div>
   </div>
 </template>
 <script>
-import DetailBanner from './components/Banner'
-import DetailHeader from './components/Header'
-import DetailList from './components/List'
+import DetailBanner from "./components/Banner";
+import DetailHeader from "./components/Header";
+import DetailList from "./components/List";
 
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  name:"Detail",
+  name: "Detail",
   data() {
     return {
-      sightName: '',
-      bannerImg: '',
+      sightName: "",
+      bannerImg: "",
       gallaryImgs: [],
       categoryList: []
-    }
+    };
   },
   mounted() {
-        this.getDetailInfo()
+    this.getDetailInfo();
   },
   methods: {
     getDetailInfo() {
-      axios.get('/api/detail.json',{
-        params:{
-          id:this.$route.params.id
-        }
-      }).then(this.handleGetDataSucc)
+      axios
+        .get("http://106.13.28.10/travel/mock/detail.json", {
+          params: {
+            id: this.$route.params.id
+          }
+        })
+        .then(this.handleGetDataSucc);
     },
-    handleGetDataSucc(res)  {
-      res = res.data
-      if(res.ret && res.data) {
-        const data = res.data
-        this.sightName = data.sightName
-        this.bannerImg = data.bannerImg
-        this.gallaryImgs = data.gallaryImgs
-        this.categoryList = data.categoryList
+    handleGetDataSucc(res) {
+      res = res.data;
+      if (res.ret && res.data) {
+        const data = res.data;
+        this.sightName = data.sightName;
+        this.bannerImg = data.bannerImg;
+        this.gallaryImgs = data.gallaryImgs;
+        this.categoryList = data.categoryList;
       }
     }
   },
@@ -52,10 +52,11 @@ export default {
     DetailHeader,
     DetailList
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>
-  .content
-    height 50rem
+.content {
+  height: 50rem;
+}
 </style>

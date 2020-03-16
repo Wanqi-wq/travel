@@ -1,21 +1,20 @@
 <template>
   <div>
-    <city-header/>
-    <city-search :cities="cities"/>
+    <city-header />
+    <city-search :cities="cities" />
     <city-list :cities="cities" :hot="hotCities" :letter="letter"/>
-    <city-alphabet :cities="cities" @letterChange="letterChange"/>  
+    <city-alphabet :cities="cities" @letterChange="letterChange" />
   </div>
-  
 </template>
 
 <script>
-import CityHeader from "./components/Header"
-import CitySearch from "./components/Search"
-import CityList from "./components/List"
-import CityAlphabet from "./components/Alphabet"
-import axios from "axios"
+import CityHeader from "./components/Header";
+import CitySearch from "./components/Search";
+import CityList from "./components/List";
+import CityAlphabet from "./components/Alphabet";
+import axios from "axios";
 export default {
-  name:"City",
+  name: "City",
   components: {
     CityHeader,
     CitySearch,
@@ -24,34 +23,30 @@ export default {
   },
   data() {
     return {
-      cities:{},
-      hotCities:[],
+      cities: {},
+      hotCities: [],
       letter: ""
-    }
+    };
   },
   mounted() {
-    this.getCityInfo()
+    this.getCityInfo();
   },
   methods: {
     getCityInfo() {
-      axios.get("/api/city.json")
-      .then(this.getCityInfoSucc)
+      axios
+        .get("http://106.13.28.10/travel/mock/city.json")
+        .then(this.getCityInfoSucc);
     },
     getCityInfoSucc(res) {
-       res = res.data;
-      if(res.ret && res.data) {
-        console.log(res.data)
-         this.cities = res.data.cities,
-         this.hotCities = res.data.hotCities
+      res = res.data;
+      if (res.ret && res.data) {
+        this.cities = res.data.cities; 
+        this.hotCities = res.data.hotCities;
       }
     },
     letterChange(letter) {
       this.letter = letter;
     }
-  } 
-}
+  }
+};
 </script>
-
-<style lang="stylus" scoped>
-
-</style>

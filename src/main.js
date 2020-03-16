@@ -19,6 +19,7 @@ Vue.use(VueAwesomeSwiper)
 
 
 Vue.config.productionTip = false
+//解决移动端300ms延时
 fastClick.attach(document.body)
 new Vue({
   router,

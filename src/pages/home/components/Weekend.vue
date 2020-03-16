@@ -4,7 +4,7 @@
     <ul>
       <li class="item border-bottom" v-for="item in list" :key="item.id">
         <div class="item-img-wrapper">
-          <img class="item-img" :src="item.imgUrl" alt="">
+          <img class="item-img" :src="item.imgUrl" alt />
         </div>
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -12,62 +12,50 @@
         </div>
       </li>
     </ul>
-  </div> 
+  </div>
 </template>
 
 <script>
 export default {
   name: "HomeWeekend",
-  data() {
-    return {
-      recommend: [{
-        id:'0001',
-        imgUrl:"https://imgs.qunarzz.com/p/tts3/1806/5d/5096a14841cda02.jpg_r_390x260x90_4c8cfed4.jpg",
-        desc:"浪漫大连首站浪漫"
-      },{
-        id:'0002',
-        imgUrl:"https://imgs.qunarzz.com/p/tts3/1806/5d/5096a14841cda02.jpg_r_390x260x90_4c8cfed4.jpg",
-        title:"清境小瑞士花园",
-        desc:"浪漫大连首站浪漫"
-      },{
-        id:'0003',
-        imgUrl:"https://imgs.qunarzz.com/p/tts3/1806/5d/5096a14841cda02.jpg_r_390x260x90_4c8cfed4.jpg",
-        title:"清境小瑞士花园",
-        desc:"浪漫大连首站浪漫"
-      },{
-        id:'0004',
-        imgUrl:"https://imgs.qunarzz.com/p/tts3/1806/5d/5096a14841cda02.jpg_r_390x260x90_4c8cfed4.jpg",
-        title:"清境小瑞士花园",
-        desc:"浪漫大连首站浪漫"
-      }]
-    }
-  },
   props: {
     list: Array
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
-  @import "~styles/mixins.styl"
-  .title
-    line-height .8rem
-    background #eee
-    text-indent .2rem
-  .item-img-wrapper
-    overflow hidden
-    height 0
-    padding-bottom 33.9%
-    .item-img
-      width 100%
-  .item-info
-    padding: .1rem
-  .item-title
-    line-height .54rem
-    font-size .32rem
-    ellipsis()
-  .item-desc
-    line-height .4rem
-    color #ccc
-    ellipsis()
+@import '~styles/mixins.styl';
+
+.title {
+  line-height: 0.8rem;
+  background: #eee;
+  text-indent: 0.2rem;
+}
+
+.item-img-wrapper {
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 33.9%;
+
+  .item-img {
+    width: 100%;
+  }
+}
+
+.item-info {
+  padding: 0.1rem;
+}
+
+.item-title {
+  line-height: 0.54rem;
+  font-size: 0.32rem;
+  ellipsis();
+}
+
+.item-desc {
+  line-height: 0.4rem;
+  color: #ccc;
+  ellipsis();
+}
 </style>
 
