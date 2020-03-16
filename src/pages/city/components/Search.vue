@@ -36,7 +36,9 @@ export default {
     }
   },
   mounted() {
-    this.scroll = new BScroll(this.$refs.content);
+    this.scroll = new BScroll(this.$refs.content,{
+      click: true
+    });
   },
   props: {
     cities: Object
